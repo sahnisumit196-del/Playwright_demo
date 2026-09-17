@@ -1,12 +1,12 @@
 // @ts-check
 
-import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
+import { defineConfig, devices } from "@playwright/test";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
 
   fullyParallel: true,
 
@@ -16,33 +16,33 @@ export default defineConfig({
 
   workers: process.env.CI ? 1 : undefined,
 
-  reporter: 'html',
+  reporter: "html",
 
   use: {
     baseURL: process.env.BASE_URL,
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
     headless: true,
   },
 
   projects: [
     {
-      name: 'chromium',
+      name: "chromium",
       use: {
-        ...devices['Desktop Chrome'],
+        ...devices["Desktop Chrome"],
       },
     },
 
     {
-      name: 'firefox',
+      name: "firefox",
       use: {
-        ...devices['Desktop Firefox'],
+        ...devices["Desktop Firefox"],
       },
     },
 
     {
-      name: 'webkit',
+      name: "webkit",
       use: {
-        ...devices['Desktop Safari'],
+        ...devices["Desktop Safari"],
       },
     },
   ],
