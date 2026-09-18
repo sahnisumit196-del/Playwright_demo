@@ -11,4 +11,3 @@ test("has title", async ({ page }) => {
   await addtocart.VerifyOrderCompleted();
   await addtocart.ValidateHomeScreen();
 });
-//New commit
