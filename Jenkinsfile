@@ -1,6 +1,13 @@
 pipeline {
     agent any
 
+    environment {
+        BASE_URL = credentials('BASE_URL')
+        HOME_URL = credentials('HOME_URL')
+        USERNAME1 = credentials('USERNAME1')
+        PASSWORD = credentials('PASSWORD')
+    }
+
     stages {
 
         stage('Install Dependencies') {
