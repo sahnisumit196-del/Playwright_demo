@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    parameters {
+    choice(
+        name: 'ENVIRONMENT',
+        choices: ['QA', 'UAT', 'PROD'],
+        description: 'Select environment'
+    )
+}
+
     environment {
         BASE_URL = credentials('BASE_URL')
         HOME_URL = credentials('HOME_URL')
