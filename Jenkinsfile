@@ -20,6 +20,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
+                echo "Selected Environment: ${params.ENVIRONMENT}"
                 bat 'call npm ci'
             }
         }
