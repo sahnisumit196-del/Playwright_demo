@@ -16,9 +16,15 @@ pipeline {
             }
         }
 
-        stage('Run Playwright Tests') {
+        stage('Smoke Tests') {
             steps {
-                bat 'call npx playwright test'
+                bat 'call npx playwright test tests/smoke'
+            }
+        }
+
+        stage('Regression Tests') {
+            steps {
+                bat 'call npx playwright test tests/regression'
             }
         }
     }
