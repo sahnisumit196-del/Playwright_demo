@@ -1,5 +1,5 @@
 import { test } from "@playwright/test";
-import AddToCart from "./PageObjects/addToCart";
+import AddToCart from "../PageObjects/addToCart";
 
 test("has title", async ({ page }) => {
   const addtocart = new AddToCart(page);
