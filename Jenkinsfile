@@ -16,9 +16,9 @@ pipeline {
             }
         }
 
-        stage('Smoke Tests') {
+        stage('Regression Tests') {
             steps {
-                bat 'call npx playwright test tests/smoke'
+                bat 'call npx playwright test tests/regression'
             }
         }
     }
