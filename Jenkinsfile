@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    parameters {
+        choice(
+            name: 'SUITE',
+            choices: ['SMOKE', 'REGRESSION', 'ALL'],
+            description: 'Select Test Suite'
+        )
+    }
+
     environment {
         BASE_URL = credentials('BASE_URL')
         HOME_URL = credentials('HOME_URL')
@@ -17,12 +25,24 @@ pipeline {
         }
 
         stage('Smoke Tests') {
+            when {
+                anyOf {
+                    expression { params.SUITE == 'SMOKE' }
+                    expression { params.SUITE == 'ALL' }
+                }
+            }
             steps {
                 bat 'call npx playwright test tests/smoke'
             }
         }
 
         stage('Regression Tests') {
+            when {
+                anyOf {
+                    expression { params.SUITE == 'REGRESSION' }
+                    expression { params.SUITE == 'ALL' }
+                }
+            }
             steps {
                 bat 'call npx playwright test tests/regression'
             }
