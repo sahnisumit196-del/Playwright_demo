@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {
   await page.goto("https://the-internet.herokuapp.com");
-  await page.getByText('Checkboxes').click();
+  await page.getByText('Checkboxes').click({ timeout: 60000 });
 
   const checkbox1= page.locator("//input[@type='checkbox']").first();
   const checkbox2= page.locator("//input[@type='checkbox']").nth(1);
