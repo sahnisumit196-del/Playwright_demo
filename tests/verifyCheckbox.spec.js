@@ -17,4 +17,4 @@ test('has title', async ({ page }) => {
   await expect(checkbox2).toBeChecked();
 });
 
-//This is failing in webkit as not getting the text
+//This is failing in webkit
